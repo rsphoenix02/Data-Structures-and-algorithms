@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int man()
+int main()
 {
     int n;
-    cout << "Enter size of array";
+    cout << "Enter size of array: ";
     cin >> n;
 
     int array[n];
@@ -13,9 +13,9 @@ int man()
         cin >> array[i];
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n - 1; i++)
     {
-        for (int j = i + 1; j < n; i++)
+        for (int j = i + 1; j < n; j++)
         {
             if (array[j] < array[i])
             {
@@ -28,7 +28,7 @@ int man()
 
     for (int i = 0; i < n; i++)
     {
-        cout << array[i];
+        cout << array[i] << " ";
     }
 
     return 0;
