@@ -16,6 +16,7 @@ int average(int arr[], int n)
     int result = sum / digits;
     return result;
 }
+
 int main()
 
 {
