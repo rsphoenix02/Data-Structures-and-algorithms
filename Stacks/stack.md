@@ -1,4 +1,4 @@
-Stack is a linear data structure which operates in a LIFO(Last In First Out) or  FILO (First In Last Out) pattern.
+Stack is a linear data structure(data elements connected to each other) which operates in a LIFO(Last In First Out) or  FILO (First In Last Out) pattern.
 
 It is named stack as it behaves like a real-world stack, for example – a deck of cards or a pile of plates, etc.
 
