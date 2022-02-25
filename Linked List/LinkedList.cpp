@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Node.cpp"
 using namespace std;
-
 Node *takeInput()
 {
     int data;
@@ -24,17 +23,6 @@ Node *takeInput()
         cin >> data;
     }
     return head;
-}
-
-// Function to print using recursion
-void display(Node *p)
-{
-
-    if (p != NULL)
-    {
-        cout << p->data << " ";
-        display(p->next);
-    }
 }
 
 // Count Nodes using recursion
@@ -98,7 +86,7 @@ int search(Node *p, int x)
 }
 void insert(Node *p, int element, int index)
 {
-    if (index < 0 or index > size(p))
+    if ((index < 0) or (index > size(p)))
     {
         return;
     }
@@ -115,32 +103,20 @@ void insert(Node *p, int element, int index)
     t->next = temp->next;
     temp->next = t;
 }
-void insertLast(Node *p, int x)
+void insertLast(Node *head, int x)
 {
     Node *t = new Node(x);
+    Node *temp = head;
 
-    while (p->next != NULL)
+    while (temp->next != NULL)
     {
-        p = p->next;
+        temp = temp->next;
     }
-    p->next = t;
+    temp->next = t;
     t->next = NULL;
 }
-void sortedInsert(Node *p, int element)
-{
-    Node *t = new Node(element);
-    while ((p->next->data) <= element)
-    {
-        p = p->next;
-        if (p->next = NULL)
-        {
-            return;
-        }
-    }
-    t->next = p->next;
-    p->next = t;
-}
-int isSorted(Node *p)
+
+bool isSorted(Node *p)
 {
     bool Sorted = true;
     while (p->next != NULL)
@@ -153,35 +129,60 @@ int isSorted(Node *p)
     }
     return Sorted;
 }
+void sortedInsert(Node *head_ref,
+                  int num)
+{
+    Node *temp = new Node(num);
+    if (head_ref->data >= num)
+    {
+        temp->next = head_ref;
+        head_ref = temp;
+    }
+    else
+    {
+        Node *top = head_ref;
+        while (top != NULL && top->data < num)
+        {
+            top = top->next;
+        }
+        top->next = temp;
+        temp->next = top->next->next;
+    }
+}
+
+/* Function to print linked list */
+void display(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
 int main()
 {
 
-    // Node n1(1);
-    // Node *head = &n1;
-    // Node n2(2);
-    // Node n3(3);
-    // Node n4(4);
-    // Node n5(5);
-
-    // n1.next = &n2;
-    // n2.next = &n3;
-    // n3.next = &n4;
-    // n4.next = &n5;
-
-    Node *head = takeInput();
-    display(head);
+    Node *Head = takeInput();
+    display(Head);
     cout << endl;
-    cout << size(head) << endl;
-    cout << sum(head) << endl;
-
-    cout << maxElement(head) << endl;
-    insert(head, 5, 2);
-    cout << search(head, 5) << endl;
-    insertLast(head, 12);
-    display(head);
+    if (isSorted(Head) == true)
+    {
+        cout << " It is sorted";
+    }
+    else
+    {
+        cout << "It is unsorted";
+    }
     cout << endl;
-    sortedInsert(head, 15);
-    display(head);
-    cout << isSorted(head);
+    cout << Head << "\n";
+    int n;
+    cout << "Enter new value"
+         << "\n";
+    cin >> n;
+    sortedInsert(Head, n);
+    cout << Head << endl;
+    display(Head);
+
     return 0;
 }

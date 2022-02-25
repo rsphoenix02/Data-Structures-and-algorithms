@@ -1,18 +1,15 @@
 #include <bits/c++io.h>
+
 class Node
 {
 public:
     int data;
-    Node *next;
-
-    Node()
-    {
-        data = 0;
-        next = NULL;
-    }
+    Node *left;
+    Node *right;
     Node(int val)
     {
         data = val;
-        next = NULL;
+        left = NULL;
+        right = NULL;
     }
 };

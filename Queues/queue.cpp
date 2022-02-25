@@ -57,7 +57,7 @@ public:
         else
         {
             rear++;
-            arr[rear] = value;
+            arr[rear % 5] = value;
         }
     }
     int dequeue()
