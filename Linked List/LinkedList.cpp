@@ -154,7 +154,8 @@ void removeDublicates(Node *&head)
         }
     }
 }
-void reverse(Node *&head)
+// Reverse using Vectors - Time Complecity O(N^2)
+void reverseUsingVector(Node *&head)
 {
     vector<int> nodes;
     Node *temp = head;
@@ -171,6 +172,20 @@ void reverse(Node *&head)
         temp = temp->next;
         i--;
     }
+}
+Node *reverseUsingPointers(Node *&head)
+{
+    Node *previous = NULL;
+    Node *current = head;
+    Node *next;
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = previous;
+        previous = current;
+        current = next;
+    }
+    return previous;
 }
 int main()
 
@@ -198,7 +213,10 @@ int main()
     }
     removeDublicates(head);
     display(head);
-    reverse(head);
-    display(head);
+    // reverseUsingVector(head);
+    // display(head);
+
+    Node *reverseLL = reverseUsingPointers(head);
+    display(reverseLL);
     return 0;
 }
