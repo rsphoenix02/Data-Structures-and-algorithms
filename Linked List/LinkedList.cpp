@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 class Node
 {
@@ -153,6 +154,24 @@ void removeDublicates(Node *&head)
         }
     }
 }
+void reverse(Node *&head)
+{
+    vector<int> nodes;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        nodes.push_back(temp->data);
+        temp = temp->next;
+    }
+    int i = nodes.size() - 1;
+    temp = head;
+    while (temp != NULL)
+    {
+        temp->data = nodes[i];
+        temp = temp->next;
+        i--;
+    }
+}
 int main()
 
 {
@@ -178,6 +197,8 @@ int main()
         cout << "Sorted" << endl;
     }
     removeDublicates(head);
+    display(head);
+    reverse(head);
     display(head);
     return 0;
 }

@@ -23,6 +23,7 @@ int main()
     }
 
     cout << "capacity: " << v1.capacity();
+    cout << "capacity: " << v1.size();
 
     // cout << v1[0] << endl;
     return 0;
