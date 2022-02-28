@@ -187,6 +187,17 @@ Node *reverseUsingPointers(Node *&head)
     }
     return previous;
 }
+void midPoint(Node *head)
+{
+    Node *slow = head;
+    Node *fast = slow->next;
+    while (fast != NULL or fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    cout << slow->data;
+}
 int main()
 
 {
@@ -218,5 +229,6 @@ int main()
 
     Node *reverseLL = reverseUsingPointers(head);
     display(reverseLL);
+    midPoint(head);
     return 0;
 }

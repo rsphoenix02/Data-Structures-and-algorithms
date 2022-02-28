@@ -2,51 +2,38 @@
 #include <climits>
 using namespace std;
 
-void printArray(int array[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << endl;
-}
-
-void bubbleSort(int array[], int n)
-{
-    bool changed = false;
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            if (array[j] > array[j + 1])
-            {
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-                changed = true;
-            }
-            if (changed == false)
-            {
-                break;
-            }
-        }
-    }
-}
-
 int main()
 
 {
     int n;
     cin >> n;
 
-    int array[n];
+    int arr[n];
     for (int i = 0; i < n; i++)
     {
-        cin >> array[i];
+        cin >> arr[i];
     }
 
-    bubbleSort(array, n);
-    printArray(array, n);
+    //  In Bubble Sort We Check i with i+1 and swap if its smaller and continue will n
+    int counter = 1;
+    while (counter < n)
+    {
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+        counter++;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }
