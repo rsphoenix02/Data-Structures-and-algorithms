@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Length of string
+// Length of Character Array
 int length(char name[])
 {
     int count = 0;
@@ -12,7 +12,7 @@ int length(char name[])
     return count;
 }
 
-//  Reverse a string
+//  Reverse a Character Array
 void reverse(char input[])
 {
     int s = 0;
