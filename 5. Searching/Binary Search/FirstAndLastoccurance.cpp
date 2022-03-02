@@ -1,17 +1,18 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int FirstOccurance(int arr[], int n, int ele)
+int FirstOccurrence(vector<int> arr, int n, int ele)
 {
     int start = 0, end = n - 1;
-    int res = -1;
+    int ans = -1;
+
     while (start <= end)
     {
-        int mid = start + end - start / 2;
-
+        int mid = start + (end - start) / 2;
         if (arr[mid] == ele)
         {
-            res = mid;
+            ans = mid;
             end = mid - 1;
         }
         else if (arr[mid] > ele)
@@ -24,19 +25,18 @@ int FirstOccurance(int arr[], int n, int ele)
         }
     }
 
-    return res;
+    return ans;
 }
-int SecondOccurance(int arr[], int n, int ele)
+int LastOccurrence(vector<int> arr, int n, int ele)
 {
     int start = 0, end = n - 1;
-    int res = -1;
+    int ans = -1;
     while (start <= end)
     {
-        int mid = start + end - start / 2;
-
+        int mid = start + (end - start) / 2;
         if (arr[mid] == ele)
         {
-            res = mid;
+            ans = mid;
             start = mid + 1;
         }
         else if (arr[mid] > ele)
@@ -49,15 +49,31 @@ int SecondOccurance(int arr[], int n, int ele)
         }
     }
 
-    return res;
+    return ans;
 }
+
+pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
+{
+    pair<int, int> p;
+    p.first = FirstOccurrence(arr, n, k);
+    p.second = LastOccurrence(arr, n, k);
+
+    return p;
+}
+
 int main()
-
 {
-    int n = 7;
-    int arr[n] = {2, 4, 10, 10, 10, 18, 20};
-    int ele = 10;
-    cout << FirstOccurance(arr, n, ele) << " ";
-    cout << SecondOccurance(arr, n, ele);
+
+    int n = 6;
+    vector<int> arr;
+    arr.push_back(0);
+    arr.push_back(5);
+    arr.push_back(5);
+    arr.push_back(6);
+    arr.push_back(6);
+    arr.push_back(6);
+
+    pair<int, int> ans = firstAndLastPosition(arr, arr.size(), 6);
+    cout << ans.first << " " << ans.second;
     return 0;
 }
