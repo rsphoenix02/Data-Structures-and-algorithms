@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// We Dont know if array is sorted in reverse order or proper
 int binarySearch(int arr[], int ele, int n)
 {
     int start = 0, end = n - 1, i = 0;
