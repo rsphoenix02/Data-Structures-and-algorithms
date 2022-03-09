@@ -6,10 +6,16 @@ int getPivot(vector<int> &arr, int n)
 
     int s = 0;
     int e = n - 1;
-    int mid = s + (e - s) / 2;
 
     while (s < e)
     {
+        if (arr[0] < arr[n - 1])
+        {
+            s = 0;
+            return s;
+        }
+
+        int mid = s + (e - s) / 2;
 
         if (arr[mid] >= arr[0])
         {
@@ -19,7 +25,6 @@ int getPivot(vector<int> &arr, int n)
         {
             e = mid;
         }
-        mid = s + (e - s) / 2;
     }
     return s;
 }
