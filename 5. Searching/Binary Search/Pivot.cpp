@@ -8,6 +8,13 @@ int pivot(int arr[], int n)
     while (s < e)
     {
         int mid = s + (e - s) / 2;
+        // If pivot is already at zero position
+        if (arr[0] < arr[n - 1])
+        {
+            s = 0;
+            return s;
+        }
+
         if (arr[mid] > arr[0])
         {
             s = mid + 1;
