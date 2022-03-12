@@ -23,7 +23,7 @@ public:
 };
 void InorderTraversal(Node *root)
 {
-
+    // Time Complexity O(n)
     if (root == NULL)
     {
         return;

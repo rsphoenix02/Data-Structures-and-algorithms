@@ -23,7 +23,7 @@ public:
 };
 void PostorderTraversal(Node *root)
 {
-
+    // Time Complexity O(n)
     if (root == NULL)
     {
         return;
