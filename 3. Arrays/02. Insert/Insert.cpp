@@ -4,6 +4,7 @@ using namespace std;
 
 void insertion(int array[], int n, int x, int pos)
 {
+    // Time Complexity O(n)
     int index = pos - 1;
 
     for (int i = n - 1; i >= index; i--)
