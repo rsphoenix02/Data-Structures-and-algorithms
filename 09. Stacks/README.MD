@@ -12,7 +12,7 @@
 
 	note: all above operations take O(1) time.
 
-	>> Stack Errors (when memory not dynamically allocated)
+>> Stack Errors (when memory not dynamically allocated)
 	1.underflow: when top() or pop() called on empty stack
 	2.overflow: when push() called on full stack
 
