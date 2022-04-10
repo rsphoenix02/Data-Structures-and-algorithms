@@ -1,2 +1,1 @@
-
-A repository which contains DSA questions from basic to advanced for interview preparation on All Topics.
+This is My Data Structure & Algorithms Repository which contains all the questions I have solved till now.
